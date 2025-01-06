@@ -9,6 +9,11 @@
     height: 15rem;
     background: none;
     color: whitesmoke;
-    padding-top: 25%;
-    text-shadow: 2px 4px 10px black
+    top: 25%;
+    text-shadow: 2px 4px 10px black;
+    border: none;
+}
+.logo{
+    height: 7rem;
+    border-radius: 50%;
 }

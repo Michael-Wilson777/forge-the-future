@@ -8,8 +8,8 @@ const HomePage = () => {
         <Container fluid className="home-page">
         <Card className="intro-card" style={{width: '30rem'}}>
             <CardHeader style={{border: 'none'}} className="text-center">
-                <CardTitle><h1>Forge the Future</h1></CardTitle>
-                <CardText><h4>Your Hub for Welding/Metal Fabrication Education & Equipment</h4></CardText>
+                <CardTitle>Forge the Future</CardTitle>
+                <CardText>Your Hub for Welding/Metal Fabrication Education & Equipment</CardText>
             </CardHeader>
             <CardBody className="text-center">
                 <CardText>
