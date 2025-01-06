@@ -5,8 +5,8 @@ const HomePage = () => {
     return (
         
         <>
-        <Container className="home-page">
-        <Card style={{width: '30rem'}}>
+        <Container fluid className="home-page">
+        <Card className="intro-card" style={{width: '30rem'}}>
             <CardHeader style={{border: 'none'}} className="text-center">
                 <CardTitle><h1>Forge the Future</h1></CardTitle>
                 <CardText><h4>Your Hub for Welding/Metal Fabrication Education & Equipment</h4></CardText>
