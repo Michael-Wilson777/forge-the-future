@@ -6,7 +6,7 @@ import {
   CardTitle,
   CardText,
 } from "react-bootstrap";
-import SafetyVideos from "../components/YouTube";
+
 
 const HomePage = () => {
   return (
@@ -28,7 +28,7 @@ const HomePage = () => {
           </CardBody>
         </Card>
       </Container>
-      <Container><SafetyVideos></SafetyVideos></Container>
+      
     </>
   );
 };
