@@ -16,7 +16,7 @@ const Header = () => {
                 <NavbarToggle className='bg-secondary' aria-controls="responsive-navbar-nav" />
                 <NavbarCollapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
-                        <NavLink href='#'>Education</NavLink>
+                        <NavLink href='education'>Education</NavLink>
                         <NavLink href='#'>Shop</NavLink>
                     </Nav>
                 </NavbarCollapse>
