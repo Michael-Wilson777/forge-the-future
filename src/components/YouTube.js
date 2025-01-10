@@ -8,11 +8,12 @@ const SafetyVideos = () => {
   const [error, setError] = useState(null);
 
   const categories = [
-    { id: 'welding-safety', label: 'Welding Safety', searchTerm: 'welding safety training' },
-    { id: 'fabrication', label: 'Metal Fabrication', searchTerm: 'metal fabrication tutorial' },
-    { id: 'equipment', label: 'Equipment Guide', searchTerm: 'welding equipment guide' },
-    { id: 'techniques', label: 'Basic Techniques', searchTerm: 'basic welding techniques' }
+    { id: 'weldingtipsandtricks', label: 'Weldingtipsandtricks.com', searchTerm: "Weldingtipsandtricks.com"},
+    { id: 'weld.com', label: 'Weld.com', searchTerm: "Weld.com" },
+    { id: 'miller', label: 'Arc Academy', searchTerm: 'Arc Academy Welding Videos' },
+    { id: 'aws', label: "AWS", searchTerm: "American Welding Society" },
   ];
+
 
   const fetchVideos = async (searchTerm) => {
     setLoading(true);
