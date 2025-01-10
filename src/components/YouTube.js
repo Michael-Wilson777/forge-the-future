@@ -10,8 +10,13 @@ const SafetyVideos = () => {
   const categories = [
     { id: 'weldingtipsandtricks', label: 'Weldingtipsandtricks.com', searchTerm: "Weldingtipsandtricks.com"},
     { id: 'weld.com', label: 'Weld.com', searchTerm: "Weld.com" },
-    { id: 'miller', label: 'Arc Academy', searchTerm: 'Arc Academy Welding Videos' },
+    { id: 'miller', label: 'Miller', searchTerm: 'Miller Welding' },
+    { id: 'lincoln', label: 'Lincoln', searchTerm: 'Lincoln Welding' },
+    { id: 'aluminum', label: 'Welding Aluminum', searchTerm: 'Aluminum Welding' },
+    { id: 'oxy/acetylene', label: 'Oxy/Acetylene', searchTerm: 'Oxy/Acetylene Cutting/Brazing' },
+    { id: 'brazing', label: 'Brazing', searchTerm: 'Brazing' },
     { id: 'aws', label: "AWS", searchTerm: "American Welding Society" },
+    { id: 'osha', label: 'OSHA', searchTerm: 'OSHA/OSHA10/OSHA30/OSHA regulations' },
   ];
 
 
