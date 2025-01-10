@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Container } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 
-const SafetyVideos = () => {
+const Videos = () => {
   const [selectedCategory, setSelectedCategory] = useState('');
   const [videos, setVideos] = useState([]); // Initialize as empty array
   const [loading, setLoading] = useState(false);
@@ -16,7 +16,7 @@ const SafetyVideos = () => {
     { id: 'oxy/acetylene', label: 'Oxy/Acetylene', searchTerm: 'Oxy/Acetylene Cutting/Brazing' },
     { id: 'brazing', label: 'Brazing', searchTerm: 'Brazing' },
     { id: 'aws', label: "AWS", searchTerm: "American Welding Society" },
-    { id: 'osha', label: 'OSHA', searchTerm: 'OSHA/OSHA10/OSHA30/OSHA regulations' },
+    { id: 'osha', label: 'OSHA', searchTerm: 'OSHA/OSHA10/OSHA30/OSHA regulations' },//More to follow
   ];
 
 
@@ -76,10 +76,10 @@ const SafetyVideos = () => {
 
   return (
     <Container>
-      <div className="mb-4">
+      <Row className="mb-4">
         <h3 className="text-center mb-3">Educational Videos</h3>
         
-        <div className="d-flex flex-wrap gap-2 justify-content-center">
+        <Col className="d-flex flex-wrap gap-2 justify-content-center">
           {categories.map(category => (
             <button
               key={category.id}
@@ -91,8 +91,8 @@ const SafetyVideos = () => {
               {category.label}
             </button>
           ))}
-        </div>
-      </div>
+        </Col>
+      </Row>
 
       {error && (
         <div className="alert alert-danger text-center" role="alert">
@@ -109,9 +109,9 @@ const SafetyVideos = () => {
       )}
 
       {!loading && videos && videos.length > 0 && (
-        <div className="row row-cols-1 row-cols-md-2 g-4">
+        <Row className="row row-cols-1 row-cols-md-2 g-4">
           {videos.map(video => (
-            <div key={video.id} className="col">
+            <Col key={video.id} className="col">
               <div className="card h-100">
                 <div className="ratio ratio-16x9">
                   <iframe
@@ -128,9 +128,9 @@ const SafetyVideos = () => {
                   </p>
                 </div>
               </div>
-            </div>
+            </Col>
           ))}
-        </div>
+        </Row>
       )}
 
       {!loading && (!videos || videos.length === 0) && (
@@ -140,4 +140,4 @@ const SafetyVideos = () => {
   );
 };
 
-export default SafetyVideos;
+export default Videos;
