@@ -1,8 +1,8 @@
 import { Container } from "react-bootstrap";
-import SafetyVideos from "../components/YouTube";
+import Videos from "../components/Videos";
 const EducationPage = () => {
     return (
-        <Container><SafetyVideos></SafetyVideos></Container>
+        <Container><Videos></Videos></Container>
     )
 }
 export default EducationPage;
