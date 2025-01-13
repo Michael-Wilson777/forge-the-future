@@ -1,22 +1,38 @@
-import { useState } from "react";
-import { Container, Row, Col, Button } from "react-bootstrap";
+import React, { useState } from "react";
+import { Container, Row, Col } from "react-bootstrap";
 
 const Videos = () => {
   const [selectedCategory, setSelectedCategory] = useState("");
-  const [videos, setVideos] = useState([]);
+  const [videos, setVideos] = useState([]); // Initialize as empty array
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
   const categories = [
-    { id: 'weldingtipsandtricks', buttonLabel: 'Weldingtipsandtricks.com', searchTerm: "Weldingtipsandtricks.com"},
-    { id: 'weld.com', buttonLabel: 'Weld.com', searchTerm: "Weld.com" },
-    { id: 'miller', buttonLabel: 'Miller', searchTerm: 'Miller Welding' },
-    { id: 'lincoln', buttonLabel: 'Lincoln', searchTerm: 'Lincoln Welding' },
-    { id: 'aluminum', buttonLabel: 'Welding Aluminum', searchTerm: 'Aluminum Welding' },
-    { id: 'oxy/acetylene', buttonLabel: 'Oxy/Acetylene', searchTerm: 'Oxy/Acetylene Cutting/Brazing' },
-    { id: 'brazing', buttonLabel: 'Brazing', searchTerm: 'Brazing' },
-    { id: 'aws', buttonLabel: "AWS", searchTerm: "American Welding Society" },
-    { id: 'osha', buttonLabel: 'OSHA', searchTerm: 'OSHA/OSHA10/OSHA30/OSHA regulations' },//More to follow
+    {
+      id: "weldingtipsandtricks",
+      label: "Weldingtipsandtricks.com",
+      searchTerm: "Weldingtipsandtricks.com",
+    },
+    { id: "weld.com", label: "Weld.com", searchTerm: "Weld.com" },
+    { id: "miller", label: "Miller", searchTerm: "Miller Welding" },
+    { id: "lincoln", label: "Lincoln", searchTerm: "Lincoln Welding" },
+    {
+      id: "aluminum",
+      label: "Welding Aluminum",
+      searchTerm: "Aluminum Welding",
+    },
+    {
+      id: "oxy/acetylene",
+      label: "Oxy/Acetylene",
+      searchTerm: "Oxy/Acetylene Cutting/Brazing",
+    },
+    { id: "brazing", label: "Brazing", searchTerm: "Brazing" },
+    { id: "aws", label: "AWS", searchTerm: "American Welding Society" },
+    {
+      id: "osha",
+      label: "OSHA",
+      searchTerm: "OSHA/OSHA10/OSHA30/OSHA regulations",
+    }, //More to follow
   ];
 
   const fetchVideos = async (searchTerm) => {
@@ -24,7 +40,8 @@ const Videos = () => {
     setError(null);
 
     try {
-      console.log("Fetching videos for searchTearm", searchTerm);
+      console.log("Fetching videos for term:", searchTerm);
+      console.log("API Key exists:", !!process.env.REACT_APP_YOUTUBE_API_KEY);
 
       const searchResponse = await fetch(
         `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&q=${searchTerm}&type=video&key=${process.env.REACT_APP_YOUTUBE_API_KEY}&order=viewCount`
@@ -49,7 +66,6 @@ const Videos = () => {
       const statsResponse = await fetch(
         `https://www.googleapis.com/youtube/v3/videos?part=snippet,statistics&id=${videoIds}&key=${process.env.REACT_APP_YOUTUBE_API_KEY}`
       );
-
       const statsData = await statsResponse.json();
       console.log("Stats response:", statsData);
 
@@ -61,7 +77,7 @@ const Videos = () => {
     } catch (error) {
       console.error("Error fetching videos:", error);
       setError(error.message);
-      setVideos([]);
+      setVideos([]); // Reset videos on error
     } finally {
       setLoading(false);
     }
@@ -70,7 +86,6 @@ const Videos = () => {
   const handleCategoryChange = (categoryId) => {
     setSelectedCategory(categoryId);
     const category = categories.find((cat) => cat.id === categoryId);
-
     if (category) {
       fetchVideos(category.searchTerm);
     }
@@ -78,27 +93,24 @@ const Videos = () => {
 
   return (
     <Container>
-      <Row>
-        <Col>
-          <h3 className="text-dark">Educational Videos</h3>
-        </Col>
-      </Row>
-      <Row>
-          {categories.map((category) => (
+      <Row className="mb-4">
+        <h3 className="text-center mb-3">Educational Videos</h3>
+
         <Col className="d-flex flex-wrap gap-2 justify-content-center">
-            <Button
+          {categories.map((category) => (
+            <button
               key={category.id}
               onClick={() => handleCategoryChange(category.id)}
               className={`btn ${
                 selectedCategory === category.id
                   ? "btn-primary"
-                  : "btn-outline-primary btn-light"
+                  : "btn-outline-primary"
               }`}
             >
-              {category.buttonLabel}
-            </Button>
-        </Col>
+              {category.label}
+            </button>
           ))}
+        </Col>
       </Row>
 
       {error && (
@@ -147,5 +159,4 @@ const Videos = () => {
     </Container>
   );
 };
-
 export default Videos;
