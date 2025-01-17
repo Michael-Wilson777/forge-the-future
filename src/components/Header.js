@@ -27,7 +27,7 @@ const Header = () => {
         <NavbarCollapse id="responsive-navbar-nav">
           <Nav className="me-auto">
             <NavLink className='text-warning' href="education">Education</NavLink>
-            <NavLink className='text-warning' href="#">Shop</NavLink>
+            <NavLink className='text-warning' href="shop">Shop</NavLink>
           </Nav>
         </NavbarCollapse>
       </Container>
