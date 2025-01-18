@@ -3,14 +3,14 @@ import { Card, CardImg, CardBody, CardText, CardTitle, Button } from "react-boot
 const ShopItem = ({item}) => {
     return (
         <>
-        <Card style={{width: '18rem'}}>
-            <CardImg src={item.image} alt={item.name} style={{width: '10rem', height: 'auto'}} />
-            <CardBody>
-                <CardTitle>{item.name}</CardTitle>
+        <Card style={{maxHeight: '50rem', width: '20rem'}} className='pt-3 mt-3'>
+            <CardImg src={item.image} alt={item.name} style={{ height: '20rem'}} className='mb-2' />
+            <CardBody style={{height: '20rem'}}>
+                <CardTitle className='text-center'>{item.name}</CardTitle>
                 <CardText>{item.description}</CardText>
                 <CardText>${item.price}</CardText>
                 <Button>Add to Cart</Button>
-                </CardBody>
+            </CardBody>
         </Card>
         </>
     );

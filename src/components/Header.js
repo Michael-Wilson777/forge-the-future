@@ -6,6 +6,8 @@ import {
   NavbarToggle,
   NavbarCollapse,
   NavLink,
+  Row,
+  Col,
 } from "react-bootstrap";
 import logo from "../images/nav-logo.png";
 
@@ -30,6 +32,22 @@ const Header = () => {
             <NavLink className='text-warning' href="shop">Shop</NavLink>
           </Nav>
         </NavbarCollapse>
+      </Container>
+      <Container>
+        <Row>
+          <Col>
+          <Nav>
+
+            <NavLink className='text-warning' href="cart">Cart</NavLink>
+          </Nav>
+          </Col>
+          <Col>
+            <span className='text-warning'>Items:{}</span>
+          </Col>
+          <Col>
+            <span className='text-warning'>Total:{}</span>
+          </Col>
+        </Row>
       </Container>
     </Navbar>
   );
