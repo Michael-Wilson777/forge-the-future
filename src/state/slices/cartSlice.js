@@ -11,15 +11,22 @@ const cartSlice = createSlice({
     initialState,
     reducers: {
         addToCart: (state, action) => {
-            console.log("Action payload:", action.payload);
-            console.log("State before mutation:", JSON.stringify(state));
-            
-            state.cartItems.push(action.payload);
+            const itemInCart = state.cartItems.find((cartItem) => cartItem.name === action.payload.name);
 
-            console.log("State after mutation:", JSON.stringify(state));
-
-            state.totalItems += 1;
-            state.totalPrice += action.payload.price;
+            if (itemInCart) {
+                itemInCart.qty += 1;
+                itemInCart.price = itemInCart.qty * action.payload.price;
+                state.totalItems += 1;
+                state.totalPrice += action.payload.price;
+            } else {
+                const newItem = {
+                    ...action.payload,
+                    qty: 1 // Initialize qty for new items
+                };
+                state.cartItems.push(newItem);
+                state.totalItems += 1;
+                state.totalPrice += action.payload.price;
+            }
         }
     }
 });

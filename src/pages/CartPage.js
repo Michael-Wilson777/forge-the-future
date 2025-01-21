@@ -8,15 +8,15 @@ const CartPage = () => {
 
     return (
         <Container>
-        <Row>
             {cartItems.map((cartItem) => {
                 return (
-                    <Col key={cartItem.name}>
+                    <Row  key={cartItem.name}>
+                    <Col>
                         <CartItemCard cartItem={cartItem} />
                     </Col>
+                    </Row>
                 )
             })}
-        </Row>
     </Container>
     );
 };

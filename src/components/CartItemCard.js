@@ -1,26 +1,26 @@
 import { Card, CardBody, CardTitle, CardText, Image, Row, Col } from "react-bootstrap";
 
 const CartItemCard = ({cartItem}) => {
-    console.log(cartItem);
+    console.log('cartItem: ', cartItem);
 
     return (
         <Card>
             <Row>
-                <Col md='3'>
-                    <Image src={cartItem.image} style={{width: '50rem'}} />
+                <Col>
+                    <Image src={cartItem.image} style={{width: '15rem'}} />
                 </Col>
-                <Col md='4'>
+                <Col>
                     <CardBody>
                         <CardTitle>{cartItem.name}</CardTitle>
                         <CardText>{cartItem.description}</CardText>
                     </CardBody>
                 </Col>
-                <Col md='2'>
+                <Col>
                     <CardBody>
-                        <CardText>QTY:</CardText>
+                        <CardText>QTY: {cartItem.qty}</CardText>
                     </CardBody>
                 </Col>
-                <Col md='3'>
+                <Col>
                     <CardBody>
                         <CardText>${cartItem.price}</CardText>
                     </CardBody>
