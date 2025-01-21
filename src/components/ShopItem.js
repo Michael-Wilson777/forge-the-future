@@ -5,8 +5,10 @@ import { addToCart } from "../state/slices/cartSlice";//src\state\slices\cartSli
 const ShopItem = ({item}) => {
     const dispatch = useDispatch();
     const addItem = (item) => {
+        console.log("dispatching addToCart", item)
         dispatch(addToCart(item));
     };
+
 
 
     return (

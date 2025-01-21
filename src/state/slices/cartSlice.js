@@ -11,10 +11,15 @@ const cartSlice = createSlice({
     initialState,
     reducers: {
         addToCart: (state, action) => {
-            console.log(action.payload);
+            console.log("Action payload:", action.payload);
+            console.log("State before mutation:", JSON.stringify(state));
+            
             state.cartItems.push(action.payload);
+
+            console.log("State after mutation:", JSON.stringify(state));
+
             state.totalItems += 1;
-            state.totalPrice += action.payload.price || 0;
+            state.totalPrice += action.payload.price;
         }
     }
 });

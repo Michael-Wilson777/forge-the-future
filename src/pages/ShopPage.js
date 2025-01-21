@@ -8,8 +8,8 @@ const ShopPage = () => {
       <Row>
         {INVENTORY.map((item) => {
           return (
-            <Col>
-              <ShopItem key={item.id} item={item} />
+            <Col  key={item.id}>
+              <ShopItem item={item} />
             </Col>
           );
         })}
