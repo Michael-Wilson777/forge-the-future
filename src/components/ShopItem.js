@@ -1,6 +1,14 @@
 import { Card, CardImg, CardBody, CardText, CardTitle, Button } from "react-bootstrap";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../state/slices/cartSlice";//src\state\slices\cartSlice.js
 
 const ShopItem = ({item}) => {
+    const dispatch = useDispatch();
+    const addItem = (item) => {
+        dispatch(addToCart(item));
+    };
+
+
     return (
         <>
         <Card style={{maxHeight: '50rem', width: '20rem'}} className='pt-3 mt-3'>
@@ -9,7 +17,7 @@ const ShopItem = ({item}) => {
                 <CardTitle className='text-center'>{item.name}</CardTitle>
                 <CardText>{item.description}</CardText>
                 <CardText>${item.price}</CardText>
-                <Button>Add to Cart</Button>
+                <Button onClick={() => addItem(item)}>Add to Cart</Button>
             </CardBody>
         </Card>
         </>

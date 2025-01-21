@@ -8,6 +8,7 @@ export const INVENTORY = [
         category: 'Welding Equipment',
         inStockQty: 5,
         inStock: true,
+        cartQty: 0,
         reviews: [],
     },
     {
@@ -19,6 +20,7 @@ export const INVENTORY = [
         category: 'Welding Equipment',
         inStockQty: 3,
         inStock: true,
+        cartQty: 0,
         reviews: [],
     },
     {
@@ -30,6 +32,7 @@ export const INVENTORY = [
         category: 'Welding Equipment',
         inStockQty: 10,
         inStock: true,
+        cartQty: 0,
         reviews: [],
     },
     {
@@ -41,6 +44,7 @@ export const INVENTORY = [
         category: 'Literature',
         inStockQty: 10,
         inStock: true,
+        cartQty: 0,
         reviews: [],
     },
     {
@@ -52,6 +56,7 @@ export const INVENTORY = [
         category: 'Literature',
         inStockQty: 1,
         inStock: true,
+        cartQty: 0,
         reviews: [],
     },
 ];
