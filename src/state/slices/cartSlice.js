@@ -74,9 +74,11 @@ const cartSlice = createSlice({
         state.totalPrice -= inventoryItem.price;
       }
     },
+
+    clearCart: (state) => initialState,
   },
 });
 
 
 export const cartReducer = cartSlice.reducer;
-export const { addToCart, incrementQty, decrementQty } = cartSlice.actions;
+export const { addToCart, incrementQty, decrementQty, clearCart } = cartSlice.actions;

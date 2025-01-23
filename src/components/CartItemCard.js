@@ -3,17 +3,16 @@ import { incrementQty, decrementQty } from "../state/slices/cartSlice";
 import { Card, CardBody, CardTitle, CardText, Image, Row, Col, Button } from "react-bootstrap";
 
 const CartItemCard = ({cartItem}) => {
-    console.log('cartItem: ', cartItem);
+    
     const dispatch = useDispatch();
-
     const {image, name, description, qty, price} = cartItem;
-
     const increment = (cartItem) => {
         dispatch(incrementQty(cartItem));
     };
     const decrement = (cartItem) => {
         dispatch(decrementQty(cartItem));
     };
+    
 
     return (
         <Card>
@@ -40,11 +39,11 @@ const CartItemCard = ({cartItem}) => {
                     <CardBody>
                         <CardText>Price: ${price.toFixed(2)}</CardText>
                     </CardBody>
-                    <Button>Remove</Button>
+                    
                 </Col>
             </Row>
         </Card>
-    )
+    );
 };
 
 export default CartItemCard;
