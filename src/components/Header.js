@@ -53,7 +53,7 @@ const Header = () => {
       </NavLink>
     </NavItem>
     <p className="text-light mt-2 me-4 bg-warning">
-      Items: {cartCount} Cart Total: {cartTotal}
+      Items: {cartCount} Cart Total: {cartTotal.toFixed(2)}
     </p>
 
   </Nav>
