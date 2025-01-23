@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { incrementQty } from "../state/slices/cartSlice";
+import { incrementQty, decrementQty } from "../state/slices/cartSlice";
 import { Card, CardBody, CardTitle, CardText, Image, Row, Col, Button } from "react-bootstrap";
 
 const CartItemCard = ({cartItem}) => {
@@ -10,6 +10,9 @@ const CartItemCard = ({cartItem}) => {
 
     const increment = (cartItem) => {
         dispatch(incrementQty(cartItem));
+    };
+    const decrement = (cartItem) => {
+        dispatch(decrementQty(cartItem));
     };
 
     return (
@@ -26,7 +29,10 @@ const CartItemCard = ({cartItem}) => {
                 </Col>
                 <Col>
                     <CardBody>
-                        <CardText>QTY: <Button onClick={() => increment(cartItem)}>+</Button> {qty} <Button>-</Button></CardText>
+                        <CardText>
+                            QTY: 
+                            <Button onClick={() => increment(cartItem)}>+</Button> {qty} <Button onClick={() => decrement(cartItem)}>-</Button>
+                        </CardText>
                     </CardBody>
                     
                 </Col>
