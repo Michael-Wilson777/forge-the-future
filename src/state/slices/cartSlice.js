@@ -76,6 +76,10 @@ const cartSlice = createSlice({
     },
 
     clearCart: (state) => initialState,
+
+    submitPayment: () => {
+      
+    }
   },
 });
 
