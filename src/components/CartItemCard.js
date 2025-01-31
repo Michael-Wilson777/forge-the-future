@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { incrementQty, decrementQty } from "../state/slices/cartSlice";
+import { incrementQty, decrementQty, removeFromCart } from "../state/slices/cartSlice";
 import {
   Image,
   Card,
@@ -11,6 +11,7 @@ import {
   Row,
   Col,
   Button,
+  CloseButton,
 } from "react-bootstrap";
 
 const CartItemCard = ({ cartItem }) => {
@@ -22,6 +23,9 @@ const CartItemCard = ({ cartItem }) => {
   const decrement = (cartItem) => {
     dispatch(decrementQty(cartItem));
   };
+  const deleteItem = (cartItem) => {
+    dispatch(removeFromCart(cartItem))
+  }
 
   return (
    
@@ -30,7 +34,7 @@ const CartItemCard = ({ cartItem }) => {
         <Col className='col-3'>
           <CardImg src={image} style={{ width: "15rem" }} />
         </Col>
-        <Col className='col-3'>
+        <Col className='col-3 offset-2'>
             <Row>
               <CardTitle className='mt-2'>{name}</CardTitle>
               <CardText>{description}</CardText>
@@ -61,7 +65,16 @@ const CartItemCard = ({ cartItem }) => {
             </Row>
           </Col>
               <Col className="text-end col-4">
-                <span>Price: ${price.toFixed(2)}</span>
+                <Row>
+                  <Col>
+                    <CloseButton onClick={() => deleteItem(cartItem)} />
+                  </Col>
+                </Row>
+                <Row>
+                  <Col>
+                    <span>Price: ${price.toFixed(2)}</span>
+                  </Col>
+                </Row>
               </Col>
       </Row>
     </Card>

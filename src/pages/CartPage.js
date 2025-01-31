@@ -7,12 +7,6 @@ import PaymentContainer from "../components/PaymentContainer";
 const CartPage = () => {
   const cartItems = useSelector((state) => state.cart.cartItems);
 
-  const dispatch = useDispatch();
-  console.log(cartItems);
-
-  const emptyCart = (cartItems) => {
-    dispatch(clearCart(cartItems));
-  };
 
   return (
     <>

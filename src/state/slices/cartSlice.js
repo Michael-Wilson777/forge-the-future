@@ -80,6 +80,13 @@ const cartSlice = createSlice({
       state.totalPrice = 0;
       state.totalItems = 0;
     },
+    removeFromCart: (state, action) => {
+      state.cartItems = state.cartItems.filter(
+        (cartItem) => cartItem.id !== action.payload.id
+      );
+      state.totalItems -= action.payload.qty;
+      state.totalPrice -= action.payload.price * action.payload.qty;
+    },
 
     submitPayment: (state) => {
       state.Inventory = state.Inventory.map((item) => {
@@ -99,4 +106,4 @@ const cartSlice = createSlice({
 
 
 export const cartReducer = cartSlice.reducer;
-export const { addToCart, incrementQty, decrementQty, clearCart, submitPayment } = cartSlice.actions;
+export const { addToCart, incrementQty, decrementQty, clearCart, submitPayment, removeFromCart } = cartSlice.actions;

@@ -10,6 +10,7 @@ import {
   CardFooter,
   CardTitle,
   Button,
+  CloseButton,
 } from "react-bootstrap";
 
 const PaymentContainer = () => {
