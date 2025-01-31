@@ -75,14 +75,28 @@ const cartSlice = createSlice({
       }
     },
 
-    clearCart: (state) => initialState,
+    clearCart: (state) => {
+      state.cartItems = [];
+      state.totalPrice = 0;
+      state.totalItems = 0;
+    },
 
-    submitPayment: () => {
+    submitPayment: (state) => {
+      state.Inventory = state.Inventory.map((item) => {
+        const cartItem = state.cartItems.find((cartItem) => cartItem.id === item.id);
+        if (cartItem) {
+          return {...item, inStockQty: item.inStockQty - cartItem.qty};
+        }
+        return item;
+      })
       
+      state.cartItems = [];
+      state.totalItems = 0;
+      state.totalPrice = 0;
     }
   },
 });
 
 
 export const cartReducer = cartSlice.reducer;
-export const { addToCart, incrementQty, decrementQty, clearCart } = cartSlice.actions;
+export const { addToCart, incrementQty, decrementQty, clearCart, submitPayment } = cartSlice.actions;

@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { clearCart } from "../state/slices/cartSlice";
+import { clearCart, submitPayment as submitPaymentAction } from "../state/slices/cartSlice";
 import {
   Container,
   Row,
@@ -11,6 +11,7 @@ import {
   CardTitle,
   Button,
 } from "react-bootstrap";
+
 const PaymentContainer = () => {
   const cartItems = useSelector((state) => state.cart.cartItems);
   const totalCost = useSelector((state) => state.cart.totalPrice);
@@ -18,8 +19,12 @@ const PaymentContainer = () => {
   const dispatch = useDispatch();
   console.log(cartItems);
 
-  const emptyCart = (cartItems) => {
-    dispatch(clearCart(cartItems));
+  const handleClearCart = () => {
+    dispatch(clearCart());
+  };
+
+  const handleSubmitPayment = () => {
+    dispatch(submitPaymentAction());
   };
 
   return (
@@ -36,15 +41,14 @@ const PaymentContainer = () => {
       </CardHeader>
       <CardBody></CardBody>
       <CardFooter>
-            <Row>
-
-                <Col className='col-2'>
-                     <Button>Pay</Button>  {/*set up inventorySlice for onclick */}
-                </Col>
-                <Col className="col-4">
-                    <Button onClick={() => emptyCart(cartItems)}>Clear Cart</Button>
-                </Col>
-            </Row>
+        <Row>
+          <Col className="col-2">
+            <Button onClick={handleSubmitPayment}>Pay</Button>
+          </Col>
+          <Col className="col-4">
+            <Button onClick={handleClearCart}>Clear Cart</Button>
+          </Col>
+        </Row>
       </CardFooter>
     </Card>
   );
