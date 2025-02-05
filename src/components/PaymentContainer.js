@@ -9,6 +9,7 @@ import {
   CardHeader,
   CardFooter,
   CardTitle,
+  CardText,
   Button,
   CloseButton,
 } from "react-bootstrap";
@@ -29,25 +30,38 @@ const PaymentContainer = () => {
   };
 
   return (
-    <Card as="div" className="mt-3">
+    <Card as="div" className="mt-3 float-end" style={{width: '20rem'}}>
       <CardHeader>
-        <Row>
-          <Col className="col-3">
+        
+          <Col>
             <CardTitle>Total</CardTitle>
           </Col>
-          <Col className="col-3 text-end offset-5">
+          <Col>
             <CardTitle>${totalCost.toFixed(2)}</CardTitle>
           </Col>
-        </Row>
+       
       </CardHeader>
-      <CardBody></CardBody>
+      <CardBody>
+        {cartItems.map((item) => {
+          return (
+            <Row>
+              <Col>
+                <CardText>{item.name}</CardText>
+              </Col>
+              <Col>
+                <CardText>${item.price.toFixed(2)}</CardText>
+              </Col>
+            </Row>
+          )
+        })}
+      </CardBody>
       <CardFooter>
         <Row>
           <Col className="col-2">
-            <Button onClick={handleSubmitPayment}>Pay</Button>
+            <Button size='sm' onClick={handleSubmitPayment}>Pay</Button>
           </Col>
-          <Col className="col-4">
-            <Button onClick={handleClearCart}>Clear Cart</Button>
+          <Col className="col-4 offset-5">
+            <Button size='sm' onClick={handleClearCart}>Clear Cart</Button>
           </Col>
         </Row>
       </CardFooter>

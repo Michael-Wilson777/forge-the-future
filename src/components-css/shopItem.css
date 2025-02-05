@@ -1,0 +1,22 @@
+.shop-item-card {
+    height: 30rem;
+    width: 18rem;
+    margin: 1rem;
+    padding: 0.5rem;
+  }
+  
+  .shop-item-image {
+    height: 10rem;
+    /* object-fit: cover; */
+  }
+  
+  .shop-item-body {
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .shop-item-body .btn {
+    margin-top: auto;
+  }

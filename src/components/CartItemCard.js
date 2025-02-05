@@ -1,5 +1,9 @@
 import { useDispatch } from "react-redux";
-import { incrementQty, decrementQty, removeFromCart } from "../state/slices/cartSlice";
+import {
+  incrementQty,
+  decrementQty,
+  removeFromCart,
+} from "../state/slices/cartSlice";
 import {
   Image,
   Card,
@@ -7,12 +11,14 @@ import {
   CardTitle,
   CardText,
   CardImg,
+  CardFooter,
   Container,
   Row,
   Col,
   Button,
   CloseButton,
 } from "react-bootstrap";
+import "../components-css/cartItemCard.css";
 
 const CartItemCard = ({ cartItem }) => {
   const dispatch = useDispatch();
@@ -24,62 +30,45 @@ const CartItemCard = ({ cartItem }) => {
     dispatch(decrementQty(cartItem));
   };
   const deleteItem = (cartItem) => {
-    dispatch(removeFromCart(cartItem))
-  }
+    dispatch(removeFromCart(cartItem));
+  };
 
   return (
-   
-    <Card as='div' className="mt-3">
+    <Card className="cart-item-card mt-3">
+      <CloseButton className="close-button" onClick={() => deleteItem(cartItem)} />
       <Row>
-        <Col className='col-3'>
-          <CardImg src={image} style={{ width: "15rem" }} />
+        <Col lg={3} md={4} sm={12}>
+          <Image src={image} className="cart-item-image" />
         </Col>
-        <Col className='col-3 offset-2'>
-            <Row>
-              <CardTitle className='mt-2'>{name}</CardTitle>
-              <CardText>{description}</CardText>
-            </Row>
-            <Row className="mt-4">
-              <h5 className="">QTY:</h5>
-              <Col className="col-2">
+        <Col lg={9} md={8} sm={12}>
+          <CardBody>
+            <CardTitle>{name}</CardTitle>
+            <CardText>{description}</CardText>
+            <CardText className="cart-item-price">Price: ${price.toFixed(2)}</CardText>
+            <div className="qty-container">
+              <h5>QTY:</h5>
+              <div className="qty-buttons ps-3 mb-2">
                 <Button
-                  style={{ backgroundColor: "transparent" }}
-                  className="text-dark"
+                  className="qty-button text-dark"
+                  variant='secondary'
                   onClick={() => increment(cartItem)}
                 >
-                  <span className="">+</span>
+                  +
                 </Button>
-              </Col>
-              <Col className="col-1 pt-2">
-                <p>{qty}</p>
-              </Col>
-              <Col className="col-2">
+                <p className="qty-amount">{qty}</p>
                 <Button
-                  style={{ backgroundColor: "transparent" }}
-                  className="margin-auto text-dark"
+                  className="qty-button text-dark"
+                  variant='secondary'
                   onClick={() => decrement(cartItem)}
                 >
                   -
                 </Button>
-              </Col>
-            </Row>
-          </Col>
-              <Col className="text-end col-4">
-                <Row>
-                  <Col>
-                    <CloseButton onClick={() => deleteItem(cartItem)} />
-                  </Col>
-                </Row>
-                <Row>
-                  <Col>
-                    <span>Price: ${price.toFixed(2)}</span>
-                  </Col>
-                </Row>
-              </Col>
+              </div>
+            </div>
+          </CardBody>
+        </Col>
       </Row>
     </Card>
-   
-  
   );
 };
 
