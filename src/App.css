@@ -1,18 +1,11 @@
 .home-page {
-    background-image: url(./images/bg-img.png);
+    background-image: url(/public/images/bg-img.png);
     background-size: cover;
     height: 100vh;
     display: flex;
 
 }
-.intro-card {
-    height: 15rem;
-    background: none;
-    color: whitesmoke;
-    top: 25%;
-    text-shadow: 2px 4px 10px black;
-    border: none;
-}
+
 .logo{
     height: 7rem;
     border-radius: 50%;

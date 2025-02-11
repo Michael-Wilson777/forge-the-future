@@ -1,20 +1,21 @@
 .shop-item-card {
-    height: 30rem;
+    height: 25rem;
     width: 18rem;
     margin: 1rem;
-    padding: 0.5rem;
+    
   }
   
   .shop-item-image {
     height: 10rem;
+    width: auto;
     /* object-fit: cover; */
   }
   
   .shop-item-body {
-    padding: 0.5rem;
-    display: flex;
+    
+    display: block;
     flex-direction: column;
-    justify-content: space-between;
+    
   }
   
   .shop-item-body .btn {

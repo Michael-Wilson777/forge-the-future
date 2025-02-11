@@ -1,35 +1,25 @@
-import {
-  Container,
-  Card,
-  CardBody,
-  CardHeader,
-  CardTitle,
-  CardText,
-} from "react-bootstrap";
-
+import { useState } from "react";
+import { Container, Row, Col, Button, Card, CardBody, CardHeader, CardTitle } from "react-bootstrap";
+import IntroCard from "../components/IntroCard";
+import Videos from "../components/Videos";
+import SupportAndInfoCard from "../components/SupportAndInfoCard";
+import '../components-css/homePage.css';
 
 const HomePage = () => {
+
+
   return (
-    <>
-      <Container fluid className="home-page">
-        <Card className="intro-card" style={{ width: "30rem" }}>
-          <CardHeader style={{ border: "none" }} className="text-center">
-            <CardTitle>Forge the Future</CardTitle>
-            <CardText>
-              Your Hub for Welding/Metal Fabrication Education & Equipment
-            </CardText>
-          </CardHeader>
-          <CardBody className="text-center">
-            <CardText>
-              Whether you're a newcomer to welding and metal fabrication or
-              simply in need of the right tools to get the job done, you've
-              found the perfect place!
-            </CardText>
-          </CardBody>
-        </Card>
-      </Container>
-      
-    </>
+    <Container fluid className="home-page text-center">
+      <Row className="h-50">
+        <Col lg={12}>
+          <IntroCard className='intro-card-comp' />
+        </Col>
+        <Col lg={4} className='p-3'>
+          <SupportAndInfoCard />
+        </Col>
+        
+      </Row>
+    </Container>
   );
 };
 
